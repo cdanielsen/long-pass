@@ -132,7 +132,6 @@ class StateContainer extends React.Component {
             <PasswordPresenter
               id="password-container"
               passwordContent={this.state.passwordContent}
-              wordClass="password-content"
             />
           </Grid>
         </Grid>

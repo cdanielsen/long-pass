@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function Header (props) {
+function Header ({className, textContent}) {
   return (
-    <div>
-      <div className={props.className}>{props.textContent}</div>
-    </div>
+    <div className={className}>{textContent}</div>
   )
 }
 

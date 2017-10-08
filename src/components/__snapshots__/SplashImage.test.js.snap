@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component Should return an image tag with an id and the correct src attribute 1`] = `
+<img
+  id="sploosh"
+  src="http://image.com"
+/>
+`;

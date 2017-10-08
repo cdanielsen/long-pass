@@ -13,12 +13,6 @@ h3 {
   margin-bottom: 20px;
 }
 
-.password-content {
-  padding: 10px;
-  font-weight: bolder;
-  font-size: 1.25em;
-}
-
 .banner {
   font-size: 1.5em;
   font-weight: bold;
@@ -38,6 +32,9 @@ h3 {
 #password-container {
   margin-top: 20px;
   margin-bottom: 130px;
+  padding: 10px;
+  font-weight: bolder;
+  font-size: 1.25em;
 }
 
 #new-password-submit {

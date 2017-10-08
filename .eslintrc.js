@@ -4,7 +4,8 @@ module.exports = {
     "browser": true,
     "es6": true,
     "node": true,
-    "commonjs": true
+    "commonjs": true,
+    "jest/globals": true
   },
   "parserOptions": {
     "ecmaFeatures": {
@@ -12,6 +13,7 @@ module.exports = {
     }
   },
   "plugins": [
-    "react"
+    "react",
+    "jest"
   ]
 };

@@ -1,11 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function SplashImage (props) {
+function SplashImage ({id, imageUrl}) {
   return (
-    <div id={props.id}>
-      <img src={props.imageUrl} />
-    </div>
+    <img id={id} src={imageUrl} />
   )
 }
 
