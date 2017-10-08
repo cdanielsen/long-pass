@@ -27,7 +27,7 @@ class StateContainer extends React.Component {
     )
   }
 
-  pickRandomValue (array) {
+  pickRandomIndex (array) {
     return Math.floor(Math.random() * array.length)
   }
 
@@ -36,7 +36,7 @@ class StateContainer extends React.Component {
     const maxPassLength = this.state.passwordMaxWordLengthCurrent
     const filteredWords = words.filter(word => word.length <= maxPassLength)
     for (let i = 0; i < 4; i++) {
-      newPass[i] = filteredWords[this.pickRandomValue(filteredWords)]
+      newPass[i] = filteredWords[this.pickRandomIndex(filteredWords)]
     }
     return newPass
   }

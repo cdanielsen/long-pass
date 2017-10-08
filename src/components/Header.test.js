@@ -1,9 +1,6 @@
 import React from 'react'
 import Header from './Header.jsx'
-import { shallow, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-15'
-
-configure({adapter: new Adapter()})
+import { shallow } from 'enzyme'
 
 describe('Header component', () => {
   test('Should return a div with the correct class and text', () => {

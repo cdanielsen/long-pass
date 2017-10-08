@@ -1,9 +1,6 @@
 import React from 'react'
 import SliderFilter from './SliderFilter.jsx'
-import { shallow, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-15'
-
-configure({adapter: new Adapter()})
+import { shallow } from 'enzyme'
 
 describe('Slider Filter component', () => {
   const props = {

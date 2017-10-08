@@ -1,9 +1,6 @@
 import React from 'react'
 import SplashImage from './SplashImage.jsx'
-import { shallow, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-15'
-
-configure({adapter: new Adapter()})
+import { shallow } from 'enzyme'
 
 describe('Header component', () => {
   test('Should return an image tag with an id and the correct src attribute', () => {

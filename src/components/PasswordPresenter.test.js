@@ -1,9 +1,6 @@
 import React from 'react'
 import PasswordPresenter from './PasswordPresenter.jsx'
-import { shallow, configure } from 'enzyme'
-import Adapter from 'enzyme-adapter-react-15'
-
-configure({adapter: new Adapter()})
+import { shallow } from 'enzyme'
 
 describe('PasswordPresenter component', () => {
   const props = {
