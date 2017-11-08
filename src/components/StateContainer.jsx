@@ -1,6 +1,5 @@
 import React from 'react'
-import words from 'more-words'
-
+import wordSet from 'more-words'
 import Header from './Header'
 import SplashImage from './SplashImage'
 import Grid from 'material-ui/Grid'
@@ -15,7 +14,7 @@ class StateContainer extends React.Component {
       passwordContent: [],
       passwordMaxLength: 20,
       passwordMaxWordLengthPossible: 5,
-      passwordMaxWordLengthCurrent: 4
+      passwordMaxWordLengthCurrent: 3
     }
     this.handleSubmitButtonClick = this.handleSubmitButtonClick.bind(this)
     this.handleMaxWordLengthInput = this.handleMaxWordLengthInput.bind(this)
@@ -27,22 +26,23 @@ class StateContainer extends React.Component {
     )
   }
 
-  pickRandomIndex (array) {
+  pickRandomIndex (array = []) {
     return Math.floor(Math.random() * array.length)
   }
 
-  generatePassword () {
-    let newPass = []
-    const maxPassLength = this.state.passwordMaxWordLengthCurrent
-    const filteredWords = words.filter(word => word.length <= maxPassLength)
-    for (let i = 0; i < 4; i++) {
-      newPass[i] = filteredWords[this.pickRandomIndex(filteredWords)]
-    }
-    return newPass
+  generatePassword (words = []) {
+    let newPass = new Array(4).fill()
+    const maxWordLength = this.state.passwordMaxWordLengthCurrent
+    const filteredWords = this.filterWordSet(words, maxWordLength)
+    return newPass.map(word => filteredWords[this.pickRandomIndex(filteredWords)])
+  }
+
+  filterWordSet (words, maxWordLength) {
+    return words.filter(word => word.length <= maxWordLength)
   }
 
   handleSubmitButtonClick () {
-    const newPass = this.generatePassword()
+    const newPass = this.generatePassword(wordSet)
     window.scroll({ left: 0, top: 1000, behavior: 'smooth' })
     this.setState((prevState, props) => ({ passwordContent: newPass }))
   }
