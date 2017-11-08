@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 function SplashImage ({id, imageUrl}) {
   return (
-    <img id={id} src={imageUrl} />
+    <a href="https://xkcd.com/936/">
+      <img id={id} src={imageUrl} />
+    </a>
   )
 }
 

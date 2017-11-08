@@ -2,7 +2,7 @@ import React from 'react'
 import SliderFilter from './SliderFilter.jsx'
 import { shallow } from 'enzyme'
 
-describe('Slider Filter component', () => {
+describe('SliderFilter component', () => {
   const props = {
     title: 'Sweet sweet slider',
     id: '1',
