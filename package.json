@@ -10,6 +10,7 @@
     "build:prod": "webpack -p",
     "start": "node server.js",
     "test": "jest",
+    "test:watch": "jest --watch --coverage",
     "lint": "eslint src/**/*.jsx",
     "prettify": "prettier src/**/*.jsx --write --single-quote=true",
     "launch": "chrome http://127.0.0.1:8081/"
