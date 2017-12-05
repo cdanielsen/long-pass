@@ -30,7 +30,7 @@ class StateContainer extends React.Component {
     return Math.floor(Math.random() * array.length)
   }
 
-  generatePassword (words = []) {
+  generatePassword (words = ['']) {
     const maxWordLength = this.state.passwordMaxWordLengthCurrent
     const filteredWords = this.filterWordSet(words, maxWordLength)
     return new Array(4)

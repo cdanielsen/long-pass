@@ -29,6 +29,10 @@ describe('StateContainer helper methods', () => {
       expect(Number.isInteger(randomIndex)).toBe(true)
       expect(sampleArray.includes(sampleArray[randomIndex])).toBe(true)
     })
+
+    test('should return 0 if no array is passed', () => {
+      expect(wrapper.instance().pickRandomIndex()).toBe(0)
+    })
   })
 
   describe('#generatePassword', () => {
@@ -45,6 +49,10 @@ describe('StateContainer helper methods', () => {
         .map(word => wordSet.includes(word))
         .every(bool => bool === true)
       expect(allWordsWereFromOriginalSet).toBe(true)
+    })
+
+    test('should return an array of empty strings if no array is passed', () => {
+      expect(wrapper.instance().generatePassword()).toEqual(['', '', '', ''])
     })
   })
 
@@ -111,6 +119,7 @@ describe('StateContainer event handlers', () => {
       const actualMaxWordLengthPossible = wrapper.state('passwordMaxWordLengthPossible')
       expect(actualMaxWordLengthPossible).toBe(expectedMaxWordLengthPossible)
     })
+
     test('should leave the passwordMaxWordLengthCurrent value unchanged if falls within the limit of the new passWordMaxLength constraint', () => {
       const newPassMaxLength = 19
       const expectedMaxWordLengthCurrent = wrapper.state('passwordMaxWordLengthCurrent')
@@ -120,6 +129,7 @@ describe('StateContainer event handlers', () => {
       const actualMaxWordLengthCurrent = wrapper.state('passwordMaxWordLengthCurrent')
       expect(actualMaxWordLengthCurrent).toBe(expectedMaxWordLengthCurrent)
     })
+
     test('should set a new passwordMaxWordLengthCurrent value if the old value could violate the new passwordMaxWordLength constraint', () => {
       const newPassMaxLength = 10
       const expectedMaxWordLengthCurrent = 2
