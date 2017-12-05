@@ -31,10 +31,11 @@ class StateContainer extends React.Component {
   }
 
   generatePassword (words = []) {
-    let newPass = new Array(4).fill()
     const maxWordLength = this.state.passwordMaxWordLengthCurrent
     const filteredWords = this.filterWordSet(words, maxWordLength)
-    return newPass.map(word => filteredWords[this.pickRandomIndex(filteredWords)])
+    return new Array(4)
+      .fill('')
+      .map(word => filteredWords[this.pickRandomIndex(filteredWords)])
   }
 
   filterWordSet (words, maxWordLength) {
@@ -42,19 +43,16 @@ class StateContainer extends React.Component {
   }
 
   handleSubmitButtonClick () {
-    const newPass = this.generatePassword(wordSet)
     window.scroll({ left: 0, top: 1000, behavior: 'smooth' })
+    const newPass = this.generatePassword(wordSet)
     this.setState((prevState, props) => ({ passwordContent: newPass }))
   }
 
   handleMaxWordLengthInput (event) {
     const currentValue = parseInt(event.target.value, 10)
-    this.setState(
-      (prevState, props) => ({
-        passwordMaxWordLengthCurrent: currentValue
-      }),
-      this.handleSubmitButtonClick
-    )
+    this.setState((prevState, props) => ({
+      passwordMaxWordLengthCurrent: currentValue
+    }), () => this.handleSubmitButtonClick())
   }
 
   handleMaxPasswordLengthInput (event) {
@@ -78,7 +76,7 @@ class StateContainer extends React.Component {
         passwordMaxWordLengthPossible: newMaxWordLength,
         passwordMaxWordLengthCurrent: adjustedMaxWordLength
       }
-    }, this.handleSubmitButtonClick)
+    }, () => this.handleSubmitButtonClick())
   }
 
   render () {
@@ -108,7 +106,7 @@ class StateContainer extends React.Component {
             <div>
               <SliderFilter
                 title="Max Length"
-                id="slider-max-password-length"
+                inputId="slider-max-password-length"
                 min={12}
                 max={28}
                 newSelectionHandler={this.handleMaxPasswordLengthInput}
@@ -120,7 +118,7 @@ class StateContainer extends React.Component {
             <div>
               <SliderFilter
                 title="Max Word Length"
-                id="slider-max-word-length"
+                inputId="slider-max-word-length"
                 min={3}
                 max={this.state.passwordMaxWordLengthPossible}
                 newSelectionHandler={this.handleMaxWordLengthInput}

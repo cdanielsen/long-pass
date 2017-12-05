@@ -5,7 +5,7 @@ import { shallow } from 'enzyme'
 describe('SliderFilter component', () => {
   const props = {
     title: 'Sweet sweet slider',
-    id: '1',
+    inputId: '1',
     min: 1,
     max: 10,
     value: 5,
@@ -18,7 +18,7 @@ describe('SliderFilter component', () => {
 
     expect(wrapper).toMatchSnapshot()
     expect(wrapper.find('h3').first().text()).toEqual(props.title)
-    expect(inputElementProps.id).toEqual(props.id)
+    expect(inputElementProps.id).toEqual(props.inputId)
     expect(inputElementProps.onChange).toEqual(props.newSelectionHandler)
     expect(inputElementProps.min).toEqual(props.min)
     expect(inputElementProps.max).toEqual(props.max)

@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StateContainer render should render the correct tree of components 1`] = `
+<div>
+  <withStyles(GridWrapper)
+    container={true}
+  >
+    <withStyles(GridWrapper)
+      item={true}
+      md={12}
+    >
+      <div>
+        <Header
+          className="banner"
+          textContent="You Need A Long Password"
+        />
+        <SplashImage
+          id="main-image"
+          imageUrl="https://imgs.xkcd.com/comics/password_strength.png"
+        />
+        <Header
+          className="banner"
+          textContent="Make Me One!"
+        />
+        <SubmitButton
+          clickHandler={[Function]}
+          id="new-password-submit"
+        />
+      </div>
+    </withStyles(GridWrapper)>
+  </withStyles(GridWrapper)>
+  <withStyles(GridWrapper)
+    container={true}
+    spacing={8}
+  >
+    <withStyles(GridWrapper)
+      id="control-panel"
+      item={true}
+      md={6}
+    >
+      <div>
+        <SliderFilter
+          inputId="slider-max-password-length"
+          max={28}
+          min={12}
+          newSelectionHandler={[Function]}
+          title="Max Length"
+          value={20}
+        />
+      </div>
+    </withStyles(GridWrapper)>
+    <withStyles(GridWrapper)
+      id="control-panel"
+      item={true}
+      md={6}
+    >
+      <div>
+        <SliderFilter
+          inputId="slider-max-word-length"
+          max={5}
+          min={3}
+          newSelectionHandler={[Function]}
+          title="Max Word Length"
+          value={3}
+        />
+      </div>
+    </withStyles(GridWrapper)>
+    <withStyles(GridWrapper)
+      item={true}
+      md={12}
+    >
+      <PasswordPresenter
+        id="password-container"
+        passwordContent={Array []}
+      />
+    </withStyles(GridWrapper)>
+  </withStyles(GridWrapper)>
+</div>
+`;
