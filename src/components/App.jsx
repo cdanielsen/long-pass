@@ -4,7 +4,7 @@ import StateContainer from './StateContainer'
 import {
   MuiThemeProvider,
   createMuiTheme,
-  createPalette
+  createPalette,
 } from 'material-ui/styles'
 import { blue, red } from 'material-ui/colors'
 
@@ -12,11 +12,11 @@ smooth.polyfill()
 const THEME = createMuiTheme({
   palette: createPalette({
     primary: blue,
-    error: red
-  })
+    error: red,
+  }),
 })
 
-function App (props) {
+function App() {
   return (
     <MuiThemeProvider theme={THEME}>
       <StateContainer />

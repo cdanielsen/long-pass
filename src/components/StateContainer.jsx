@@ -8,13 +8,13 @@ import PasswordPresenter from './PasswordPresenter'
 import SliderFilter from './SliderFilter.jsx'
 
 class StateContainer extends React.Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       passwordContent: [],
       passwordMaxLength: 20,
       passwordMaxWordLengthPossible: 5,
-      passwordMaxWordLengthCurrent: 3
+      passwordMaxWordLengthCurrent: 3,
     }
     this.handleSubmitButtonClick = this.handleSubmitButtonClick.bind(this)
     this.handleMaxWordLengthInput = this.handleMaxWordLengthInput.bind(this)
@@ -26,60 +26,66 @@ class StateContainer extends React.Component {
     )
   }
 
-  pickRandomIndex (array = []) {
+  pickRandomIndex(array = []) {
     return Math.floor(Math.random() * array.length)
   }
 
-  generatePassword (words = ['']) {
+  generatePassword(words = ['']) {
     const maxWordLength = this.state.passwordMaxWordLengthCurrent
     const filteredWords = this.filterWordSet(words, maxWordLength)
     return new Array(4)
       .fill('')
-      .map(word => filteredWords[this.pickRandomIndex(filteredWords)])
+      .map(() => filteredWords[this.pickRandomIndex(filteredWords)])
   }
 
-  filterWordSet (words, maxWordLength) {
+  filterWordSet(words, maxWordLength) {
     return words.filter(word => word.length <= maxWordLength)
   }
 
-  handleSubmitButtonClick () {
+  handleSubmitButtonClick() {
     window.scroll({ left: 0, top: 1000, behavior: 'smooth' })
     const newPass = this.generatePassword(wordSet)
-    this.setState((prevState, props) => ({ passwordContent: newPass }))
+    this.setState(() => ({ passwordContent: newPass }))
   }
 
-  handleMaxWordLengthInput (event) {
+  handleMaxWordLengthInput(event) {
     const currentValue = parseInt(event.target.value, 10)
-    this.setState((prevState, props) => ({
-      passwordMaxWordLengthCurrent: currentValue
-    }), () => this.handleSubmitButtonClick())
+    this.setState(
+      () => ({
+        passwordMaxWordLengthCurrent: currentValue,
+      }),
+      () => this.handleSubmitButtonClick()
+    )
   }
 
-  handleMaxPasswordLengthInput (event) {
+  handleMaxPasswordLengthInput(event) {
     const maxLength = parseInt(event.target.value, 10)
     this.setState(
-      (prevState, props) => ({
-        passwordMaxLength: maxLength
+      () => ({
+        passwordMaxLength: maxLength,
       }),
       this.handleUpdatingPasswordLength
     )
   }
 
-  handleUpdatingPasswordLength () {
+  handleUpdatingPasswordLength() {
     const newMaxWordLength = Math.floor(this.state.passwordMaxLength / 4)
-    this.setState((prevState, props) => {
-      const adjustedMaxWordLength =
-        prevState.passwordMaxWordLengthCurrent < newMaxWordLength
-          ? prevState.passwordMaxWordLengthCurrent
-          : newMaxWordLength
-      return {
-        passwordMaxWordLengthPossible: newMaxWordLength,
-        passwordMaxWordLengthCurrent: adjustedMaxWordLength
-      }
-    }, () => this.handleSubmitButtonClick())
+    this.setState(
+      prevState => {
+        const adjustedMaxWordLength =
+          prevState.passwordMaxWordLengthCurrent < newMaxWordLength
+            ? prevState.passwordMaxWordLengthCurrent
+            : newMaxWordLength
+        return {
+          passwordMaxWordLengthPossible: newMaxWordLength,
+          passwordMaxWordLengthCurrent: adjustedMaxWordLength,
+        }
+      },
+      () => this.handleSubmitButtonClick()
+    )
   }
 
-  render () {
+  render() {
     return (
       <div>
         <Grid container>

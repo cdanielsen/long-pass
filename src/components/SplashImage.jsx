@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-function SplashImage ({id, imageUrl}) {
+function SplashImage({ id, imageUrl }) {
   return (
     <a href="https://xkcd.com/936/">
       <img id={id} src={imageUrl} />
@@ -11,7 +11,7 @@ function SplashImage ({id, imageUrl}) {
 
 SplashImage.propTypes = {
   imageUrl: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
 }
 
 export default SplashImage
