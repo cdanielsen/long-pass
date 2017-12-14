@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cdanielsen/long-pass.svg?branch=feature%2Fadd-grid-and-lift-state)](https://travis-ci.org/cdanielsen/long-pass)
+
 # Long Pass #
 
 A bespoke react app (does not use create-react app =) for generating password ideas.
