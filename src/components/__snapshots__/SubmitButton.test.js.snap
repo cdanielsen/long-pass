@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SubmitButton component Given props, should render with the correct attributes 1`] = `
+<withStyles(Button)
+  color="primary"
+  fab={true}
+  id="lolbutton"
+  onClick={[Function]}
+>
+  <pure(Lock)
+    style={
+      Object {
+        "height": 40,
+        "width": 40,
+      }
+    }
+  />
+</withStyles(Button)>
+`;

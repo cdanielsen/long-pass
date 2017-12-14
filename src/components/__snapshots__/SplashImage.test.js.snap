@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SplashImage component Should return an image tag with an id and the correct src attribute 1`] = `
+<a
+  href="https://xkcd.com/936/"
+>
+  <img
+    id="sploosh"
+    src="http://image.com"
+  />
+</a>
+`;
